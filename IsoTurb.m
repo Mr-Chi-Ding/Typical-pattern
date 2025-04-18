@@ -36,7 +36,7 @@ kz = zeros(nModes+1, 1);
 for ii = 1 : nModes+1
     kx(ii) = sin(theta(ii))*cos(phi(ii))*km(ii);
     ky(ii) = sin(theta(ii))*sin(phi(ii))*km(ii);
-    kz(ii) = sin(theta(ii))*km(ii);
+    kz(ii) = cos(theta(ii))*km(ii);
 end
 
 ktx = zeros(nModes+1, 1);
@@ -46,7 +46,7 @@ ktz = zeros(nModes+1, 1);
 for ii = 1 : nModes+1
     ktx(ii) = sin(kx(ii)*hdx)/dx;
     kty(ii) = sin(ky(ii)*hdy)/dy;
-    ktz(ii) = cos(kz(ii)*hdy)/dz;
+    ktz(ii) = sin(kz(ii)*hdz)/dz;
 end
 
 sxm = zeros(nModes+1, 1);
@@ -94,7 +94,7 @@ for ii = 1 : nx
 for jj = 1 : ny
 for kk = 1 : nz
     for mm = 1 : nModes+1
-        arg = kx(mm) * x_1d(ii) + ky(mm) * y_1d(jj) + kz(mm) * z_1d(kk);
+        arg = kx(mm) * x_1d(ii) + ky(mm) * y_1d(jj) + kz(mm) * z_1d(kk) - psi(mm);
         uu(ii, jj, kk) = uu(ii, jj, kk) + cos(arg)*sxm(mm);
         vv(ii, jj, kk) = vv(ii, jj, kk) + cos(arg)*sym(mm);
         ww(ii, jj, kk) = ww(ii, jj, kk) + cos(arg)*szm(mm);
