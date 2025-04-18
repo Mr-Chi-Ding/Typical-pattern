@@ -1,2 +1,2 @@
 # Typical-pattern
-Some typical patterns.
+This repo is to store some typical patterns that I need to review.
