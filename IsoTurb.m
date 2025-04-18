@@ -34,9 +34,9 @@ ky = zeros(nModes+1, 1);
 kz = zeros(nModes+1, 1);
 
 for ii = 1 : nModes+1
-    kx(ii) = sin(theta(ii))*cos(theta(ii))*km(ii);
-    ky(ii) = sin(theta(ii))*sin(theta(ii))*km(ii);
-    kz(ii) = cos(theta(ii))*km(ii);
+    kx(ii) = sin(theta(ii))*cos(phi(ii))*km(ii);
+    ky(ii) = sin(theta(ii))*sin(phi(ii))*km(ii);
+    kz(ii) = sin(theta(ii))*km(ii);
 end
 
 ktx = zeros(nModes+1, 1);
